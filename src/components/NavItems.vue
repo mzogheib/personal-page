@@ -27,8 +27,10 @@ export default {
 .nav-items {
   display: flex;
   flex-direction: row-reverse;
+  width: 100%;
 
   &__item {
+    flex-basis: 33.3333333%;
     position: relative;
   }
 

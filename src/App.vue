@@ -15,6 +15,8 @@ const Colors = {
   four: Palette[3]
 }
 
+const setBackgroundColor = color => document.getElementsByTagName('html')[0].style.backgroundColor = color;
+
 export default {
   name: 'app',
   data () {
@@ -28,6 +30,9 @@ export default {
       ]
     }
   },
+  created: function () {
+    setBackgroundColor(Colors.four);
+  },
   components: {
     TopBar,
     NavItems,
@@ -39,8 +44,8 @@ export default {
 <template>
   <div class="app" v-bind:style="{ backgroundColor: backgroundColor }">
     <top-bar class="app__top-bar" :color="topBarColor"></top-bar>
-    <div class="app__nav-items">
-      <nav-items :nav-items="navItems"></nav-items>
+    <div class="app__nav-items-wrapper">
+      <nav-items class="app__nav-items" :nav-items="navItems"></nav-items>
     </div>
     <!-- <info-box></info-box> -->
   </div>
@@ -58,18 +63,31 @@ html, body {
   color: #2c3e50;
   display: flex;
   flex-direction: column;
-  height: 100%;
 
   &__top-bar {
     padding: 30px;
   }
 
-  &__nav-items {
-    flex-grow: 1;
+  &__nav-items-wrapper {
+    flex: 1;
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    margin: 15% 0;
+  }
+
+  &__nav-items {
+    max-width: 600px;
+  }
+
+  @media (max-width: 630px) {
+    &__nav-items-wrapper {
+      margin: 5% 0;
+    }
+
+    &__nav-items {
+      max-width: 200px;
+    }
   }
 }
 </style>

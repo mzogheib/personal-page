@@ -13,16 +13,20 @@ export default {
 
 <style lang="scss">
 .nav-item {
-  height: 220px;
-  width: 220px;
   border-radius: 50%;
 
   display: flex;
   justify-content: flex-end;
   align-items: center;
 
-  background-color: aquamarine;
   text-transform: uppercase;
   font-size: 30px;
+
+  // Maintain 1:1 aspect ratio
+  &::before {
+    content: '';
+    padding-top: 100%;
+  }
+
 }
 </style>
