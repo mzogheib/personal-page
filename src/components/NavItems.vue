@@ -3,7 +3,8 @@
     <nav-item
       class="nav-items__item"
       v-for="item in navItems"
-      :key="item.name"
+      @click.native="() => selectItem(item.title)"
+      :key="item.title"
       :title="item.title"
       :background-color="item.backgroundColor"
       :color="item.color"
@@ -15,8 +16,13 @@
 import NavItem from './NavItem.vue'
 
 export default {
-  props: ['navItems'],
+  props: ['navItems', 'onItemSelect'],
   name: 'nav-items',
+  data() {
+    return {
+      selectItem: name => this.onItemSelect(name)
+    }
+  },
   components: {
     NavItem
   }

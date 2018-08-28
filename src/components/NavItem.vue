@@ -22,6 +22,10 @@ export default {
   text-transform: uppercase;
   font-size: 30px;
 
+  &:hover {
+    cursor: pointer;
+  }
+
   // Maintain 1:1 aspect ratio
   &::before {
     content: '';

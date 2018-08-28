@@ -27,7 +27,8 @@ export default {
         { title: 'Contact', backgroundColor: Colors.three, color: Colors.one },
         { title: 'Projects', backgroundColor: Colors.two, color: Colors.three },
         { title: 'About', backgroundColor: Colors.one, color: Colors.two },
-      ]
+      ],
+      handleSelectItem: name => console.log(name)
     }
   },
   created: function () {
@@ -45,7 +46,7 @@ export default {
   <div class="app" v-bind:style="{ backgroundColor: backgroundColor }">
     <top-bar class="app__top-bar" :color="topBarColor"></top-bar>
     <div class="app__nav-items-wrapper">
-      <nav-items class="app__nav-items" :nav-items="navItems"></nav-items>
+      <nav-items class="app__nav-items" :on-item-select="handleSelectItem" :nav-items="navItems"></nav-items>
     </div>
     <!-- <info-box></info-box> -->
   </div>
