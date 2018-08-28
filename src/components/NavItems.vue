@@ -32,24 +32,31 @@ export default {
 
 <style lang="scss">
 .nav-items {
+  $itemWidthSmall: 20vw;
+  $itemWidthLarge: 50vw;
+  $midPointH: 50vw;
+  $offsetH: 17vw;
+  $offsetV: 17vw;
+  $transitionTime: 0.75s;
+
   position: relative;
 
   &__item {
-    height: 20vw;
-    width: 20vw;
+    height: $itemWidthSmall;
+    width: $itemWidthSmall;
     opacity: 1;
-    transition: opacity 1s, left 1s, top 1s;
+    transition: opacity $transitionTime, left $transitionTime, top $transitionTime;
     position: absolute;
-    left: 50vw - 10vw;
+    left: $midPointH - $itemWidthSmall / 2;
     z-index: 2;
 
     &:first-child {
-      left: 35vw - 10vw;
+      left: ($midPointH - $offsetH) - $itemWidthSmall / 2;
       z-index: 3;
     }
 
     &:last-child {
-      left: 66vw - 10vw;
+      left: ($midPointH + $offsetH) - $itemWidthSmall / 2;
       z-index: 1;
     }
 
@@ -72,23 +79,23 @@ export default {
 
   @media (max-width: 630px) {
     &__item {
-      height: 50vw;
-      width: 50vw;
-      left: 50vw - 25vw;
-      top: 30vw;
+      height: $itemWidthLarge;
+      width: $itemWidthLarge;
+      left: $midPointH - $itemWidthLarge / 2;
+      top: $itemWidthLarge - $offsetV;
 
       &:first-child {
-        left: 50vw - 25vw;
+        left: $midPointH - $itemWidthLarge / 2;
         top: 0;
       }
 
       &:last-child {
-        left: 50vw - 25vw;
-        top: 60vw;
+        left: $midPointH - $itemWidthLarge / 2;
+        top: 2 * $itemWidthLarge - 2 * $offsetV;
       }
 
       &.-focussed {
-        left: 50vw - 25vw;
+        left: $midPointH - $itemWidthLarge / 2;
         top: 0;
       }
     }
