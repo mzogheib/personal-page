@@ -1,7 +1,8 @@
 <template>
-  <div class="nav-items">
+  <div class="nav-items" :class="{ '-focussed': isFocussed }">
     <nav-item
       class="nav-items__item"
+      :class="{ '-hidden': item.isHidden, '-focussed': isFocussed }"
       v-for="item in navItems"
       @click.native="() => selectItem(item.title)"
       :key="item.title"
@@ -16,11 +17,11 @@
 import NavItem from './NavItem.vue'
 
 export default {
-  props: ['navItems', 'onItemSelect'],
+  props: ['navItems', 'isFocussed', 'onItemSelect'],
   name: 'nav-items',
   data() {
     return {
-      selectItem: name => this.onItemSelect(name)
+      selectItem: title => this.onItemSelect(title)
     }
   },
   components: {
@@ -31,34 +32,65 @@ export default {
 
 <style lang="scss">
 .nav-items {
-  display: flex;
-  flex-direction: row-reverse;
-  width: 100%;
+  position: relative;
 
   &__item {
-    flex-basis: 33.3333333%;
-    position: relative;
-  }
+    height: 20vw;
+    width: 20vw;
+    opacity: 1;
+    transition: opacity 1s, left 1s, top 1s;
+    position: absolute;
+    left: 50vw - 10vw;
+    z-index: 2;
 
-  &__item:first-child {
-    left: -30px;
-  }
-
-  &__item:last-child {
-    right: -30px;
-  }
-
-  @media (max-width: 630px) {
-    flex-direction: column-reverse;
-
-    &__item:first-child {
-      left: 0;
-      top: -30px;
+    &:first-child {
+      left: 35vw - 10vw;
+      z-index: 3;
     }
 
-    &__item:last-child {
-      right: 0;
-      bottom: -30px;
+    &:last-child {
+      left: 66vw - 10vw;
+      z-index: 1;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &.-focussed {
+      left: 30px;
+      cursor: default;
+    }
+
+    &.-hidden {
+      opacity: 0;
+      pointer-events: none;
+      cursor: default;
+    }
+  }
+
+
+  @media (max-width: 630px) {
+    &__item {
+      height: 50vw;
+      width: 50vw;
+      left: 50vw - 25vw;
+      top: 30vw;
+
+      &:first-child {
+        left: 50vw - 25vw;
+        top: 0;
+      }
+
+      &:last-child {
+        left: 50vw - 25vw;
+        top: 60vw;
+      }
+
+      &.-focussed {
+        left: 50vw - 25vw;
+        top: 0;
+      }
     }
   }
 }

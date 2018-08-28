@@ -16,6 +16,7 @@ const Colors = {
 }
 
 const setBackgroundColor = color => document.getElementsByTagName('html')[0].style.backgroundColor = color;
+const focusItem = (title, items) => items.map(item => ({ ...item, isHidden: title && item.title !== title }));
 
 export default {
   name: 'app',
@@ -23,12 +24,16 @@ export default {
     return {
       backgroundColor: Colors.four,
       topBarColor: Colors.two,
+      isFocussed: false,
       navItems: [
-        { title: 'Contact', backgroundColor: Colors.three, color: Colors.one },
-        { title: 'Projects', backgroundColor: Colors.two, color: Colors.three },
-        { title: 'About', backgroundColor: Colors.one, color: Colors.two },
+        { title: 'About', isHidden: false, backgroundColor: Colors.one, color: Colors.two },
+        { title: 'Projects', isHidden: false, backgroundColor: Colors.two, color: Colors.three },
+        { title: 'Contact', isHidden: false, backgroundColor: Colors.three, color: Colors.one },
       ],
-      handleSelectItem: name => console.log(name)
+      handleSelectItem: title => {
+        this.navItems = focusItem(title, this.navItems);
+        this.isFocussed = !!title;
+      }
     }
   },
   created: function () {
@@ -44,9 +49,9 @@ export default {
 
 <template>
   <div class="app" v-bind:style="{ backgroundColor: backgroundColor }">
-    <top-bar class="app__top-bar" :color="topBarColor"></top-bar>
-    <div class="app__nav-items-wrapper">
-      <nav-items class="app__nav-items" :on-item-select="handleSelectItem" :nav-items="navItems"></nav-items>
+    <top-bar class="app__top-bar" :color="topBarColor" @click.native="() => handleSelectItem()"></top-bar>
+    <div class="app__nav-items-wrapper" :class="{ '-focussed': isFocussed }">
+      <nav-items class="app__nav-items" :on-item-select="handleSelectItem" :nav-items="navItems" :is-focussed="isFocussed"></nav-items>
     </div>
     <!-- <info-box></info-box> -->
   </div>
@@ -55,39 +60,28 @@ export default {
 <style lang="scss">
 html, body {
   margin: 0;
-  height: 100%;
 }
 .app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  display: flex;
-  flex-direction: column;
 
   &__top-bar {
     padding: 30px;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   &__nav-items-wrapper {
-    flex: 1;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    margin: 15% 0;
-  }
-
-  &__nav-items {
-    max-width: 600px;
+    padding: 5vh 0;
   }
 
   @media (max-width: 630px) {
     &__nav-items-wrapper {
-      margin: 5% 0;
-    }
-
-    &__nav-items {
-      max-width: 200px;
+      padding: 0;
     }
   }
 }
