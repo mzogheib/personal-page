@@ -1,13 +1,13 @@
-<template>
-  <div class="top-bar" v-bind:style="{ color: color }">Marwan Zogheib</div>
-</template>
-
 <script>
 export default {
   name: 'top-bar',
   props: ['color']
 }
 </script>
+
+<template>
+  <div class="top-bar" v-bind:style="{ color: color }">Marwan Zogheib</div>
+</template>
 
 <style lang="scss">
 .top-bar {

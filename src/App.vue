@@ -3,7 +3,6 @@ import TopBar from './components/TopBar.vue'
 import NavItems from './components/NavItems.vue'
 import InfoBox from './components/InfoBox.vue'
 
-
 const Palettes = [
   ['#ffd96a', '#f34949', '#ff9090', '#ffb6b9'], // https://colorhunt.co/palette/125267
 ];

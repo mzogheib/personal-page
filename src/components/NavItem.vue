@@ -1,15 +1,15 @@
-<template>
-  <div class="nav-item" v-bind:style="{ backgroundColor: backgroundColor, color: color }">
-    <span>{{ title }}</span>
- </div>
-</template>
-
 <script>
 export default {
   props: ['title', 'backgroundColor', 'color'],
   name: 'nav-item'
 }
 </script>
+
+<template>
+  <div class="nav-item" v-bind:style="{ backgroundColor: backgroundColor, color: color }">
+    <span>{{ title }}</span>
+ </div>
+</template>
 
 <style lang="scss">
 .nav-item {
