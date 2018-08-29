@@ -23,6 +23,7 @@ export default {
     return {
       backgroundColor: Colors.four,
       topBarColor: Colors.two,
+      infoBoxBackgroundColor: Colors.three,
       isFocussed: false,
       navItems: [
         { title: 'About', isHidden: false, backgroundColor: Colors.one, color: Colors.two },
@@ -49,14 +50,16 @@ export default {
 <template>
   <div class="app" v-bind:style="{ backgroundColor: backgroundColor }">
     <top-bar class="app__top-bar" :color="topBarColor" @click.native="() => handleSelectItem()"></top-bar>
-    <div class="app__nav-items-wrapper" :class="{ '-focussed': isFocussed }">
-      <nav-items class="app__nav-items" :on-item-select="handleSelectItem" :nav-items="navItems" :is-focussed="isFocussed"></nav-items>
+    <div class="app__content-wrapper">
+      <nav-items :on-item-select="handleSelectItem" :nav-items="navItems" :is-focussed="isFocussed"></nav-items>
+      <info-box class="app__info-box" :class="{ '-focussed': isFocussed }" :background-color="infoBoxBackgroundColor" :is-focussed="isFocussed"></info-box>
     </div>
-    <!-- <info-box></info-box> -->
   </div>
 </template>
 
 <style lang="scss">
+@import './scss/variables.scss';
+
 html, body {
   margin: 0;
 }
@@ -74,12 +77,23 @@ html, body {
     }
   }
 
-  &__nav-items-wrapper {
+  &__content-wrapper {
     padding: 5vh 0;
   }
 
+  &__info-box {
+    opacity: 0;
+    transition: opacity $transitionTime;
+    z-index: 10;
+    pointer-events: none;
+
+    &.-focussed {
+      opacity: 1;
+    }
+  }
+
   @media (max-width: 630px) {
-    &__nav-items-wrapper {
+    &__content-wrapper {
       padding: 0;
     }
   }

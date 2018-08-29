@@ -31,13 +31,14 @@ export default {
 </template>
 
 <style lang="scss">
+@import '../scss/variables.scss';
+
 .nav-items {
   $itemWidthSmall: 25vw;
   $itemWidthLarge: 50vw;
   $midPointH: 50vw;
   $offsetH: 20vw;
   $offsetV: 15vw;
-  $transitionTime: 0.75s;
 
   position: relative;
 
