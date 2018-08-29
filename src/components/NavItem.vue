@@ -20,7 +20,8 @@ export default {
   align-items: center;
 
   text-transform: uppercase;
-  font-size: 30px;
+  font-size: 24px;
+  font-weight: 500;
 
   // Maintain 1:1 aspect ratio
   &::before {

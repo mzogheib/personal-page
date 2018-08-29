@@ -12,6 +12,7 @@ export default {
 <style lang="scss">
 .top-bar {
   font-size: 30px;
+  font-weight: 500;
 
   @media (max-width: 630px) {
     text-align: center;

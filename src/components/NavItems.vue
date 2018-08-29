@@ -32,11 +32,11 @@ export default {
 
 <style lang="scss">
 .nav-items {
-  $itemWidthSmall: 20vw;
+  $itemWidthSmall: 25vw;
   $itemWidthLarge: 50vw;
   $midPointH: 50vw;
-  $offsetH: 17vw;
-  $offsetV: 17vw;
+  $offsetH: 20vw;
+  $offsetV: 15vw;
   $transitionTime: 0.75s;
 
   position: relative;
