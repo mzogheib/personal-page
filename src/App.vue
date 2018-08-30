@@ -52,7 +52,7 @@ export default {
     <top-bar class="app__top-bar" :color="topBarColor" @click.native="() => handleSelectItem()"></top-bar>
     <div class="app__content-wrapper">
       <nav-items :on-item-select="handleSelectItem" :nav-items="navItems" :is-focussed="isFocussed"></nav-items>
-      <info-box class="app__info-box" :class="{ '-focussed': isFocussed }" :background-color="infoBoxBackgroundColor" :is-focussed="isFocussed"></info-box>
+      <info-box class="app__info-box" :class="{ '-focussed': isFocussed }" :background-color="infoBoxBackgroundColor" :is-focussed="isFocussed" :on-cancel="() => handleSelectItem()"></info-box>
     </div>
   </div>
 </template>
@@ -89,6 +89,7 @@ html, body {
 
     &.-focussed {
       opacity: 1;
+      pointer-events: unset;
     }
   }
 

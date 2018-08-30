@@ -1,13 +1,21 @@
 <script>
+import CloseIcon from 'vue-material-design-icons/Close.vue'
+
 export default {
   name: 'info-box',
-  props: ['backgroundColor', 'isFocussed']
+  props: ['backgroundColor', 'isFocussed', 'onCancel'],
+  components: {
+    CloseIcon
+  }
 }
 </script>
 
 <template>
   <div class="info-box">
-    <div class="info-box__content" :class="{ '-focussed': isFocussed }" v-bind:style="{ backgroundColor: backgroundColor }">Marwan Zogheib</div>
+    <div class="info-box__content-wrapper" :class="{ '-focussed': isFocussed }" v-bind:style="{ backgroundColor: backgroundColor }">
+      <div class="info-box__header" ><close-icon class="info-box__icon-button" @click.native="onCancel"></close-icon></div>
+      <div class="info-box__content"></div>
+    </div>
   </div>
 </template>
 
@@ -17,7 +25,7 @@ export default {
 .info-box {
   position: relative;
 
-  &__content {
+  &__content-wrapper {
     position: absolute;
     left: 95vw;
     width: 0;
@@ -33,8 +41,18 @@ export default {
     }
   }
 
+  &__header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+  }
+
+  &__icon-button {
+    cursor: pointer;
+  }
+
   @media (max-width: 630px) {
-    &__content {
+    &__content-wrapper {
       left: 5vw;
       width: 90vw;
 
@@ -45,4 +63,21 @@ export default {
     }
   }
 }
+
+$iconSize: 2.125em;
+.material-design-icon {
+  display: inline-flex;
+  align-self: center;
+  position: relative;
+  height: $iconSize;
+  width: $iconSize;
+}
+.material-design-icon > .material-design-icon__svg {
+  height: $iconSize;
+  width: $iconSize;
+  fill: currentColor;
+  position: absolute;
+  bottom: -0.125em;
+}
+
 </style>
