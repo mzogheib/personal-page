@@ -49,10 +49,18 @@ export default {
 
 <template>
   <div class="app" v-bind:style="{ backgroundColor: backgroundColor }">
-    <top-bar class="app__top-bar" :color="topBarColor" @click.native="() => handleSelectItem()"></top-bar>
+    <top-bar class="app__top-bar" :color="topBarColor"></top-bar>
     <div class="app__content-wrapper">
-      <nav-items :on-item-select="handleSelectItem" :nav-items="navItems" :is-focussed="isFocussed"></nav-items>
-      <info-box class="app__info-box" :class="{ '-focussed': isFocussed }" :background-color="infoBoxBackgroundColor" :is-focussed="isFocussed" :on-cancel="() => handleSelectItem()"></info-box>
+      <nav-items
+        :on-item-select="handleSelectItem"
+        :nav-items="navItems" :is-focussed="isFocussed"
+      ></nav-items>
+      <info-box
+        class="app__info-box"
+        :class="{ '-focussed': isFocussed }"
+        :background-color="infoBoxBackgroundColor"
+        :is-focussed="isFocussed" :on-cancel="() => handleSelectItem()"
+      ></info-box>
     </div>
   </div>
 </template>
