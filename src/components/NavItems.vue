@@ -34,30 +34,30 @@ export default {
 @import '../scss/variables.scss';
 
 .nav-items {
-  $itemWidthSmall: 25vw;
-  $itemWidthLarge: 50vw;
-  $midPointH: 50vw;
-  $offsetH: 20vw;
-  $offsetV: 15vw;
+  $itemWidth: 200px;
+  $midPointH: 50%;
+  $offsetH: calc(0.75 * #{$itemWidth});
+  $offsetV: calc(0.25 * #{$itemWidth});
 
   position: relative;
 
   &__item {
-    height: $itemWidthSmall;
-    width: $itemWidthSmall;
+    width: 100%;
+    max-height: $itemWidth;
+    max-width: $itemWidth;
     opacity: 1;
     transition: opacity $transitionTime, left $transitionTime, top $transitionTime;
     position: absolute;
-    left: $midPointH - $itemWidthSmall / 2;
+    left: calc(#{$midPointH} - #{$itemWidth} / 2);
     z-index: 2;
 
     &:first-child {
-      left: ($midPointH - $offsetH) - $itemWidthSmall / 2;
+      left: calc(#{$midPointH} - #{$itemWidth} / 2 - #{$offsetH});
       z-index: 3;
     }
 
     &:last-child {
-      left: ($midPointH + $offsetH) - $itemWidthSmall / 2;
+      left: calc(#{$midPointH} - #{$itemWidth} / 2 + #{$offsetH});
       z-index: 1;
     }
 
@@ -66,7 +66,7 @@ export default {
     }
 
     &.-focussed {
-      left: 30px;
+      left: 0;
       cursor: default;
     }
 
@@ -79,23 +79,21 @@ export default {
 
   @media (max-width: 630px) {
     &__item {
-      height: $itemWidthLarge;
-      width: $itemWidthLarge;
-      left: $midPointH - $itemWidthLarge / 2;
-      top: $itemWidthLarge - $offsetV;
+      left: calc(#{$midPointH} - #{$itemWidth} / 2);
+      top: calc(#{$itemWidth} - #{$offsetV});
 
       &:first-child {
-        left: $midPointH - $itemWidthLarge / 2;
+        left: calc(#{$midPointH} - #{$itemWidth} / 2);
         top: 0;
       }
 
       &:last-child {
-        left: $midPointH - $itemWidthLarge / 2;
-        top: 2 * $itemWidthLarge - 2 * $offsetV;
+        left: calc(#{$midPointH} - #{$itemWidth} / 2);
+        top: calc(2 * (#{$itemWidth} - #{$offsetV}));
       }
 
       &.-focussed {
-        left: $midPointH - $itemWidthLarge / 2;
+        left: calc(#{$midPointH} - #{$itemWidth} / 2);
         top: 0;
       }
     }

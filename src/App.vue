@@ -51,16 +51,18 @@ export default {
   <div class="app" v-bind:style="{ backgroundColor: backgroundColor }">
     <top-bar class="app__top-bar" :color="topBarColor"></top-bar>
     <div class="app__content-wrapper">
-      <nav-items
-        :on-item-select="handleSelectItem"
-        :nav-items="navItems" :is-focussed="isFocussed"
-      ></nav-items>
-      <info-box
-        class="app__info-box"
-        :class="{ '-focussed': isFocussed }"
-        :background-color="infoBoxBackgroundColor"
-        :is-focussed="isFocussed" :on-cancel="() => handleSelectItem()"
-      ></info-box>
+      <div class="app__content">
+        <nav-items
+          :on-item-select="handleSelectItem"
+          :nav-items="navItems" :is-focussed="isFocussed"
+        ></nav-items>
+        <info-box
+          class="app__info-box"
+          :class="{ '-focussed': isFocussed }"
+          :background-color="infoBoxBackgroundColor"
+          :is-focussed="isFocussed" :on-cancel="() => handleSelectItem()"
+        ></info-box>
+      </div>
     </div>
   </div>
 </template>
@@ -79,31 +81,40 @@ html, body {
 
   &__top-bar {
     padding: 30px;
-
-    &:hover {
-      cursor: pointer;
-    }
   }
 
   &__content-wrapper {
-    padding: 5vh 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  &__content {
+    width: 90%;
+    position: relative;
   }
 
   &__info-box {
     opacity: 0;
-    transition: opacity $transitionTime;
+    transition: width $transitionTime, opacity $transitionTime;
     z-index: 10;
     pointer-events: none;
+    position: absolute;
+    width: 0;
+    right: 0;
 
     &.-focussed {
       opacity: 1;
       pointer-events: unset;
+      width: calc(100% - 225px);
     }
   }
 
   @media (max-width: 630px) {
-    &__content-wrapper {
-      padding: 0;
+    &__info-box {
+      &.-focussed {
+        width: 100%;
+      }
     }
   }
 }
