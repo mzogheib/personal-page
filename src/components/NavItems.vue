@@ -34,7 +34,6 @@ export default {
 @import '../scss/variables.scss';
 
 .nav-items {
-  $itemWidth: 200px;
   $midPointH: 50%;
   $offsetH: calc(0.75 * #{$itemWidth});
   $offsetV: calc(0.25 * #{$itemWidth});

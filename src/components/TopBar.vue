@@ -13,9 +13,6 @@ export default {
 .top-bar {
   font-size: 30px;
   font-weight: 500;
-
-  @media (max-width: 630px) {
-    text-align: center;
-  }
+  text-align: center;
 }
 </style>

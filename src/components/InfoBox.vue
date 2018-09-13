@@ -13,7 +13,7 @@ export default {
 <template>
   <div class="info-box" v-bind:style="{ backgroundColor: backgroundColor }">
     <div class="info-box__header" ><close-icon class="info-box__icon-button" @click.native="onCancel"></close-icon></div>
-    <div class="info-box__content"></div>
+    <div class="info-box__content"><slot></slot></div>
   </div>
 </template>
 
@@ -23,7 +23,7 @@ export default {
 .info-box {
   border-radius: 16px;
   box-shadow: 0 4px 4px rgba(0, 0, 0, .25);
-  white-space: nowrap;
+  // white-space: nowrap;
 
   &__header {
     display: flex;
@@ -33,6 +33,10 @@ export default {
 
   &__icon-button {
     cursor: pointer;
+  }
+
+  &__content {
+    padding: 0 25px 15px;
   }
 }
 

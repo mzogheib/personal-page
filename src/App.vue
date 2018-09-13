@@ -2,6 +2,7 @@
 import TopBar from './components/TopBar.vue'
 import NavItems from './components/NavItems.vue'
 import InfoBox from './components/InfoBox.vue'
+import AboutMe from './components/AboutMe.vue'
 
 const Palettes = [
   ['#ffd96a', '#f34949', '#ff9090', '#ffb6b9'], // https://colorhunt.co/palette/125267
@@ -12,7 +13,13 @@ const Colors = {
   two: Palette[1],
   three: Palette[2],
   four: Palette[3]
-}
+};
+
+const navItems = [
+  { title: 'About', isHidden: false, backgroundColor: Colors.one, color: Colors.two, component: AboutMe },
+  { title: 'Projects', isHidden: false, backgroundColor: Colors.two, color: Colors.three, component: AboutMe },
+  { title: 'Contact', isHidden: false, backgroundColor: Colors.three, color: Colors.one, component: AboutMe },
+];
 
 const setBackgroundColor = color => document.getElementsByTagName('html')[0].style.backgroundColor = color;
 const focusItem = (title, items) => items.map(item => ({ ...item, isHidden: title && item.title !== title }));
@@ -25,14 +32,12 @@ export default {
       topBarColor: Colors.two,
       infoBoxBackgroundColor: Colors.three,
       isFocussed: false,
-      navItems: [
-        { title: 'About', isHidden: false, backgroundColor: Colors.one, color: Colors.two },
-        { title: 'Projects', isHidden: false, backgroundColor: Colors.two, color: Colors.three },
-        { title: 'Contact', isHidden: false, backgroundColor: Colors.three, color: Colors.one },
-      ],
+      navItems: navItems,
+      focussedItem: {},
       handleSelectItem: title => {
         this.navItems = focusItem(title, this.navItems);
         this.isFocussed = !!title;
+        this.focussedItem = this.isFocussed ? this.navItems.find(n => n.title === title) : {};
       }
     }
   },
@@ -61,7 +66,7 @@ export default {
           :class="{ '-focussed': isFocussed }"
           :background-color="infoBoxBackgroundColor"
           :is-focussed="isFocussed" :on-cancel="() => handleSelectItem()"
-        ></info-box>
+        ><component v-bind:is="focussedItem.component"></component></info-box>
       </div>
     </div>
   </div>
@@ -86,11 +91,12 @@ html, body {
   &__content-wrapper {
     display: flex;
     justify-content: center;
-    width: 100%;
+    padding: 30px;
   }
 
   &__content {
-    width: 90%;
+    width: 100%;
+    max-width: 1000px;
     position: relative;
   }
 
@@ -100,21 +106,22 @@ html, body {
     z-index: 10;
     pointer-events: none;
     position: absolute;
-    width: 0;
+    width: calc(100% - #{$itemWidth} - 25px);
     right: 0;
 
     &.-focussed {
       opacity: 1;
       pointer-events: unset;
-      width: calc(100% - 225px);
     }
   }
 
   @media (max-width: 630px) {
+    &__content-wrapper {
+      padding: 5px;
+    }
+
     &__info-box {
-      &.-focussed {
-        width: 100%;
-      }
+      width: 100%;
     }
   }
 }
