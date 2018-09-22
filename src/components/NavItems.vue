@@ -94,6 +94,7 @@ export default {
       &.-focussed {
         left: calc(#{$midPointH} - #{$itemWidth} / 2);
         top: 0;
+        opacity: 0;
       }
     }
   }

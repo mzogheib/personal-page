@@ -50,7 +50,7 @@ export default {
     cursor: pointer;
 
     img {
-      max-width: 70px;
+      max-height: 70px;
     }
 
     span {

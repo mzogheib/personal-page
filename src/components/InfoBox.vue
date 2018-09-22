@@ -3,7 +3,7 @@ import CloseIcon from 'vue-material-design-icons/Close.vue'
 
 export default {
   name: 'info-box',
-  props: ['backgroundColor', 'onCancel'],
+  props: ['onCancel'],
   components: {
     CloseIcon
   }
@@ -11,7 +11,7 @@ export default {
 </script>
 
 <template>
-  <div class="info-box" v-bind:style="{ backgroundColor: backgroundColor }">
+  <div class="info-box">
     <div class="info-box__header" ><close-icon class="info-box__icon-button" @click.native="onCancel"></close-icon></div>
     <div class="info-box__content"><slot></slot></div>
   </div>
@@ -21,14 +21,10 @@ export default {
 @import '../scss/variables.scss';
 
 .info-box {
-  border-radius: 16px;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, .25);
-  // white-space: nowrap;
-
   &__header {
     display: flex;
     justify-content: flex-end;
-    padding: 10px;
+    padding: 10px 20px;
   }
 
   &__icon-button {
