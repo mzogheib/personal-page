@@ -5,8 +5,8 @@ export default {
 }
 </script>
 
-<template>
-  <div class="top-bar" v-bind:style="{ color: color }">Marwan Zogheib</div>
+<template lang="pug">
+  .top-bar(v-bind:style="{ color: color }") Marwan Zogheib
 </template>
 
 <style lang="scss">

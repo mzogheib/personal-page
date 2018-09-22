@@ -47,23 +47,14 @@ export default {
 }
 </script>
 
-<template>
-  <div class="app" v-bind:style="{ backgroundColor: backgroundColor }">
-    <top-bar class="app__top-bar" :color="topBarColor"></top-bar>
-    <div class="app__content-wrapper">
-      <div class="app__content">
-        <nav-items
-          :on-item-select="handleSelectItem"
-          :nav-items="navItems" :is-focussed="isFocussed"
-        ></nav-items>
-        <info-box
-          class="app__info-box"
-          :class="{ '-focussed': isFocussed }"
-          :is-focussed="isFocussed" :on-cancel="() => handleSelectItem()"
-        ><component v-bind:is="focussedItem.component"></component></info-box>
-      </div>
-    </div>
-  </div>
+<template lang="pug">
+  .app(v-bind:style="{ backgroundColor: backgroundColor }")
+    top-bar.app__top-bar(:color="topBarColor")
+    .app__content-wrapper
+      .app__content
+        nav-items(:on-item-select="handleSelectItem" :nav-items="navItems" :is-focussed="isFocussed")
+        info-box.app__info-box(:class="{ '-focussed': isFocussed }" :is-focussed="isFocussed" :on-cancel="() => handleSelectItem()")
+          component(v-bind:is="focussedItem.component")
 </template>
 
 <style lang="scss">

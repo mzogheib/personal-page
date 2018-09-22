@@ -10,11 +10,12 @@ export default {
 }
 </script>
 
-<template>
-  <div class="info-box">
-    <div class="info-box__header" ><close-icon class="info-box__icon-button" @click.native="onCancel"></close-icon></div>
-    <div class="info-box__content"><slot></slot></div>
-  </div>
+<template lang="pug">
+  .info-box
+    .info-box__header
+      close-icon.info-box__icon-button(@click.native="onCancel")
+    .info-box__content
+      slot
 </template>
 
 <style lang="scss">

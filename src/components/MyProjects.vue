@@ -41,41 +41,28 @@ export default {
 }
 </script>
 
-<template>
-<div class="my-projects">
-  <div class="my-projects__projects">
-    <div class="my-projects__project" v-for="project in projects" :key="project.label">
-      <div class="my-projects__project-summary">
-        <img :src="project.image">
-        <div class="my-projects__project-label">{{ project.label }}</div>
-      </div>
-      <div class="my-projects__project-detail">
-        <div class="my-projects__project-description">{{ project.description }}</div>
-        <div class="my-projects__project-detail-footer">
-          <div class="my-projects__project-links">
-            <span v-for="(link, index) in project.links" :key="link.label">
-              <a class="my-projects__project-link" :href="link.url" target='_blank'>{{ link.label }}</a>
-              <span v-if="index < project.links.length - 1"> | </span>
-            </span>
-          </div>
-          <div class="my-projects__project-technologies">
-            <img class="my-projects__project-technology" v-for="tech in project.technologies" :key="tech.label" :src="tech.image" :alt="tech.label">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<template lang="pug">
+  .my-projects
+    .my-projects__project(v-for="project in projects" :key="project.label")
+      .my-projects__project-summary
+        img(:src="project.image")
+        .my-projects__project-label {{ project.label }}
+      .my-projects__project-detail
+        .my-projects__project-description {{ project.description }}
+        .my-projects__project-detail-footer
+          .my-projects__project-links
+            span(v-for="(link, index) in project.links" :key="link.label")
+              a.my-projects__project-link(:href="link.url" target='_blank') {{ link.label }}
+              span(v-if="index < project.links.length - 1") |
+          .my-projects__project-technologies
+            img.my-projects__project-technology(v-for="tech in project.technologies" :key="tech.label" :src="tech.image" :alt="tech.label")
 </template>
 
 <style lang="scss">
 .my-projects {
-
-  &__projects {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-  }
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 
   &__project {
     display: flex;

@@ -5,10 +5,9 @@ export default {
 }
 </script>
 
-<template>
-  <div class="nav-item" v-bind:style="{ backgroundColor: backgroundColor, color: color }">
-    <span>{{ title }}</span>
- </div>
+<template lang="pug">
+  .nav-item(v-bind:style="{ backgroundColor: backgroundColor, color: color }")
+    span {{ title }}
 </template>
 
 <style lang="scss">

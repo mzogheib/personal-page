@@ -15,19 +15,16 @@ export default {
 }
 </script>
 
-<template>
-  <div class="nav-items" :class="{ '-focussed': isFocussed }">
-    <nav-item
-      class="nav-items__item"
+<template lang="pug">
+  .nav-items(:class="{ '-focussed': isFocussed }")
+    nav-item.nav-items__item(
       :class="{ '-hidden': item.isHidden, '-focussed': isFocussed }"
       v-for="item in navItems"
       @click.native="() => selectItem(item.title)"
       :key="item.title"
       :title="item.title"
       :background-color="item.backgroundColor"
-      :color="item.color"
-    ></nav-item>
-  </div>
+      :color="item.color")
 </template>
 
 <style lang="scss">
