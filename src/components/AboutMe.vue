@@ -1,6 +1,7 @@
 <script>
 export default {
   name: 'about-me',
+  props: ['onProjectsSelect', 'onContactSelect'],
   data () {
     return {
       links: [
@@ -15,9 +16,10 @@ export default {
 
 <template lang="pug">
   .about-me
-    p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget ipsum egestas, dapibus ex vitae, accumsan sem. Donec fermentum arcu in sollicitudin imperdiet. Ut eu scelerisque ex, quis gravida augue. Nunc mattis tortor ac sapien auctor dignissim. Nulla facilisi. Praesent tristique molestie leo eu pretium. Maecenas convallis lorem tincidunt elit pellentesque varius. Vivamus ac aliquam magna. Vivamus aliquet in felis eu ullamcorper.
-    p Mauris sed augue purus. Maecenas tincidunt sapien libero, et eleifend nunc viverra sit amet. Integer vel mauris faucibus, egestas est a, tempor massa. Vivamus volutpat lacinia leo, vel accumsan ipsum aliquam a. Maecenas cursus purus eu velit feugiat venenatis. Etiam auctor luctus faucibus. Donec justo ipsum, consequat sed lacus in, luctus fringilla nisi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla sagittis egestas mattis. Morbi eleifend consectetur tellus, eu scelerisque felis consequat a.
-    p Feel free to reach out to me via GitHub or LinkedIn or here.
+    .about-me__text I'm Marwan - Software Engineer, Programmer, Web Developer, all of the above. I love building things and solving problems with code.
+    .about-me__text Primarly, I'm a front end web developer but I'm comfortable across the full stack, having built personal #[a(@click="() => onProjectsSelect()") projects] in Node and Express.
+    .about-me__text I've also made a few #[a(href="https://apps.rebble.io/en_US/developer/52f0ce543be6208c1f001842/1" target="_blank") Pebble watchfaces] and enjoy automating various aspects of my life by channeling my inner MacGyver. Think: Google App Scripts, IFTTT etc.
+    .about-me__text Contact me #[a(@click="() => onContactSelect()") here] or find out more below.
     .about-me__links
       .about-me__link(@click="() => openLink(link.url)" v-for="link in links" :key="link.label")
         img(:src="link.image")
@@ -27,8 +29,12 @@ export default {
 <style lang="scss">
 .about-me {
 
-  p {
-    word-wrap: normal;
+  &__text {
+    margin: 0 0 10px;
+
+    a {
+      cursor: pointer; // hack. Inline a tags in pug templates lose the pointer on hover if there is no href
+    }
   }
 
   &__links {
@@ -36,7 +42,7 @@ export default {
     justify-content: space-evenly;
     max-width: 400px;
     width: 100%;
-    margin: 0 auto;
+    margin: 20px auto 0;
   }
 
   &__link {

@@ -48,13 +48,13 @@ export default {
 </script>
 
 <template lang="pug">
-  .app(v-bind:style="{ backgroundColor: backgroundColor }")
+  .app(:style="{ backgroundColor: backgroundColor }")
     top-bar.app__top-bar(:color="topBarColor")
     .app__content-wrapper
       .app__content
         nav-items(:on-item-select="handleSelectItem" :nav-items="navItems" :is-focussed="isFocussed")
         info-box.app__info-box(:class="{ '-focussed': isFocussed }" :is-focussed="isFocussed" :on-cancel="() => handleSelectItem()")
-          component(v-bind:is="focussedItem.component")
+          component(:is="focussedItem.component" :on-projects-select="() => handleSelectItem('Projects')" :on-contact-select="() => handleSelectItem('Contact')")
 </template>
 
 <style lang="scss">
@@ -67,6 +67,12 @@ html, body {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  a,
+  a:visited {
+    color: mediumblue;
+    text-decoration: none;
+  }
 
   &__top-bar {
     padding: 30px;

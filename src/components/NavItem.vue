@@ -6,7 +6,7 @@ export default {
 </script>
 
 <template lang="pug">
-  .nav-item(v-bind:style="{ backgroundColor: backgroundColor, color: color }")
+  .nav-item(:style="{ backgroundColor: backgroundColor, color: color }")
     span {{ title }}
 </template>
 
