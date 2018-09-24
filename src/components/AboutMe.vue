@@ -17,7 +17,7 @@ export default {
 <template lang="pug">
   .about-me
     .about-me__text I'm Marwan - Software Engineer, Programmer, Web Developer, all of the above. I love building things and solving problems with code.
-    .about-me__text Primarly, I'm a front end web developer but I'm comfortable across the full stack, having built personal #[a(@click="() => onProjectsSelect()") projects] in Node and Express.
+    .about-me__text In my day job I build for the web, primarily the front end, but I'm comfortable across the full stack having built personal #[a(@click="() => onProjectsSelect()") projects] in Node and Express.
     .about-me__text I've also made a few #[a(href="https://apps.rebble.io/en_US/developer/52f0ce543be6208c1f001842/1" target="_blank") Pebble watchfaces] and enjoy automating various aspects of my life by channeling my inner MacGyver. Think: Google App Scripts, IFTTT etc.
     .about-me__text Contact me #[a(@click="() => onContactSelect()") here] or find out more below.
     .about-me__links

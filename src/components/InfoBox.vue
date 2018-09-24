@@ -25,7 +25,7 @@ export default {
   &__header {
     display: flex;
     justify-content: flex-end;
-    padding: 10px 20px;
+    padding: 10px;
   }
 
   &__icon-button {
@@ -33,7 +33,7 @@ export default {
   }
 
   &__content {
-    padding: 0 25px 15px;
+    padding: 0 10px 15px;
   }
 }
 

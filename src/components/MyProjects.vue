@@ -13,15 +13,13 @@ const projects = [{
       '<br><br>',
       '<b>Why is it?</b>',
       '<br>',
-      '✅ Do something with all of the data I\'ve been generating over the years',
-      '<br>',
-      '✅ Learn React & Redux',
-      '<br>',
-      '✅ Learn how to consume data from APIs using OAuth 2.0',
-      '<br>',
-      '✅ More practice with building backends in Node & Express',
-      '<br>',
-      '✅ Learn how to setup and work in a monorepo',
+      '<ul>',
+      '<li>Do something with all of the data I\'ve been generating over the years</li>',
+      '<li>Learn React & Redux</li>',
+      '<li>Learn how to consume data from APIs using OAuth 2.0</li>',
+      '<li>More practice with building backends in Node & Express</li>',
+      '<li>Learn how to setup and work in a monorepo</li>',
+      '</ul>',
       ].join(''),
     technologies: [
       { label: 'React', image: require('../img/react-logo.png') },
@@ -44,14 +42,12 @@ const projects = [{
       'Checks if the input is a valid palindrom.',
       '<br><br>',
       '<b>Why is it?</b>',
-      '<br>',
-      '✅ <a href="http://www.abc.net.au/news/2017-10-30/from-racecar-to-boob-a-brief-history-of-the-palindrome/9014082" taget="_blank">Palindromes are amazing</a>',
-      '<br>',
-      '✅ Build something in vanilla JS for a change',
-      '<br>',
-      '✅ Learn how to setup GitHub Pages',
-      '<br>',
-      '✅ More practice with Google Data Studio',
+      '<ul>',
+      '<li><a href="http://www.abc.net.au/news/2017-10-30/from-racecar-to-boob-a-brief-history-of-the-palindrome/9014082" taget="_blank">Palindromes are amazing</a></li>',
+      '<li>Build something in vanilla JS for a change</li>',
+      '<li>Learn how to setup GitHub Pages</li>',
+      '<li>More practice with Google Data Studio</li>',
+      '</ul>',
       ].join(''),
     technologies: [
       { label: 'Plain JS', image: require('../img/javascript-logo.png') },
@@ -79,13 +75,12 @@ export default {
         .my-projects__project-label {{ project.label }}
       .my-projects__project-detail
         .my-projects__project-description(v-html="project.description")
-        .my-projects__project-detail-footer
-          .my-projects__project-links
-            span(v-for="(link, index) in project.links" :key="link.label")
-              a.my-projects__project-link(:href="link.url" target='_blank') {{ link.label }}
-              span(v-if="index < project.links.length - 1") &nbsp; | &nbsp;
-          .my-projects__project-technologies
-            img.my-projects__project-technology(v-for="tech in project.technologies" :key="tech.label" :src="tech.image" :alt="tech.label")
+        .my-projects__project-links
+          span(v-for="(link, index) in project.links" :key="link.label")
+            a.my-projects__project-link(:href="link.url" target='_blank') {{ link.label }}
+            span(v-if="index < project.links.length - 1") &nbsp; | &nbsp;
+        .my-projects__project-technologies
+          img.my-projects__project-technology(v-for="tech in project.technologies" :key="tech.label" :src="tech.image" :alt="tech.label")
 </template>
 
 <style lang="scss">
@@ -96,7 +91,8 @@ export default {
 
   &__project {
     display: flex;
-    padding: 20px 20px 10px;
+    flex-direction: column;
+    padding: 20px 30px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
 
@@ -110,7 +106,7 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex-basis: 120px;
+    margin: 0 0 20px;
 
     img {
       max-width: 70px;
@@ -124,7 +120,6 @@ export default {
 
   &__project-detail {
     flex-grow: 1;
-    margin: 0 0 0 20px;
     display: flex;
     flex-direction: column;
   }
@@ -132,28 +127,39 @@ export default {
   &__project-description {
     flex-grow: 1;
     margin: 0 0 20px;
-  }
 
-  &__project-detail-footer {
-    display: flex;
-    align-items: flex-end;
+    ul {
+      margin: 0;
+      padding: 0 25px;
+    }
   }
 
   &__project-links {
-    flex-grow: 1;
+    margin: 0 0 10px;
+    display: flex;
+    justify-content: center;
   }
 
   &__project-technologies {
     display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
   }
 
   &__project-technology {
     &:not(:first-child) {
-      margin: 0 0 0 15px;
+      margin: 10px 0 0 15px;
     }
 
-      max-height: 30px;
-      border-radius: 4px;
+    margin: 10px 0 0;
+    max-height: 30px;
+    border-radius: 4px;
+  }
+
+  @media(max-width: 630px) {
+    &__project {
+      padding: 20px;
+    }
   }
 
 }

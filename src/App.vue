@@ -107,7 +107,7 @@ html, body {
 
   @media (max-width: 630px) {
     &__content-wrapper {
-      padding: 5px;
+      padding: 0;
     }
 
     &__info-box {
