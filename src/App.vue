@@ -5,12 +5,13 @@ import NavItems from './components/NavItems.vue'
 import InfoBox from './components/InfoBox.vue'
 import AboutMe from './components/AboutMe.vue'
 import MyProjects from './components/MyProjects.vue'
+import ContactMe from './components/ContactMe.vue'
 
 
 const navItems = [
   { title: 'About', isHidden: false, backgroundColor: Colors.about, color: Colors.navItemColor, component: AboutMe },
   { title: 'Projects', isHidden: false, backgroundColor: Colors.projects, color: Colors.navItemColor, component: MyProjects },
-  { title: 'Contact', isHidden: false, backgroundColor: Colors.contact, color: Colors.navItemColor, component: AboutMe },
+  { title: 'Contact', isHidden: false, backgroundColor: Colors.contact, color: Colors.navItemColor, component: ContactMe },
 ];
 
 const setStyle = ({ backgroundColor, color}) => {
