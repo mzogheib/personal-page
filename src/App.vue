@@ -26,7 +26,6 @@ export default {
   data () {
     return {
       backgroundColor: Colors.background,
-      topBarColor: Colors.navItemColor,
       isFocussed: false,
       navItems: navItems,
       focussedItem: {},
@@ -37,7 +36,7 @@ export default {
       }
     }
   },
-  created: function () {
+  mounted: function () {
     setStyle({ backgroundColor: Colors.background, color: Colors.color });
   },
   components: {
@@ -49,8 +48,8 @@ export default {
 </script>
 
 <template lang="pug">
-  .app(:style="{ backgroundColor: backgroundColor }")
-    top-bar.app__top-bar(:color="topBarColor")
+  .app
+    top-bar.app__top-bar
     .app__content-wrapper
       .app__content
         nav-items(:on-item-select="handleSelectItem" :nav-items="navItems" :is-focussed="isFocussed")

@@ -60,8 +60,7 @@ export default {
   name: 'my-projects',
   data() {
     return {
-      projects: projects,
-      openLink: url => window.open(url, '_blank')
+      projects: projects
     }
   }
 }
