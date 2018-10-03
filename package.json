@@ -15,6 +15,8 @@
     "alias": "marwan-zogheib.now.sh"
   },
   "dependencies": {
+    "axios": "^0.18.0",
+    "querystring": "^0.2.0",
     "vue": "^2.5.11",
     "vue-material-design-icons": "^2.0.0"
   },

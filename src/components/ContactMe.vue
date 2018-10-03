@@ -1,5 +1,8 @@
 <script>
 import Colors from '../services/Colors.js'
+import request from 'axios'
+import querystring from 'querystring';
+import config from '../../private/config.json'
 
 const setStyle = ({ inputBackground }) => {
   // Convert from HTMLCollection to Array
@@ -28,6 +31,19 @@ export default {
       }
     }
   },
+  methods: {
+    submit: function (e) {
+      // Stop form submit from reloading page
+      e.preventDefault();
+
+      const url = config.contactUrl;
+      const requestConfig = { method: 'POST', url, data: querystring.stringify(this.form) };
+      request.request(requestConfig)
+        .then(console.log)
+        .catch(console.error);
+
+    }
+  },
   computed: {
     isDisabled: function () {
       return isDisabled(this.form);
@@ -42,13 +58,11 @@ export default {
 
 <template lang="pug">
   .contact-me
-    form.contact-me__form(action="https://mailthis.to/copernicuscalled" method="POST" encType="multipart/form-data")
+    form.contact-me__form(action="#" v-on:submit="submit")
       input.contact-me__input(type="text" name="name" placeholder="Name*" v-model="form.name" autofocus="true")
-      input.contact-me__input(type="email" name="_replyto" placeholder="Email*" v-model="form.email")
-      input.contact-me__input(type="text" name="_subject" placeholder="Subject*" v-model="form.subject" autocomplete="off")
+      input.contact-me__input(type="email" name="replyto" placeholder="Email*" v-model="form.email")
+      input.contact-me__input(type="text" name="subject" placeholder="Subject*" v-model="form.subject" autocomplete="off")
       textarea.contact-me__input(name="message" placeholder="Message*" v-model="form.message" autocomplete="off")
-      input.contact-me__input(type="hidden" name="_after" :value="currentUrl")
-      input.contact-me__input(type="hidden" name="_honeypot" value="")
       .contact-me__footer
         button.contact-me__button(type="submit" :style="{ backgroundColor: buttonBackground }" :disabled="isDisabled" v-bind:class="{ disabled: isDisabled }") Send
 </template>
