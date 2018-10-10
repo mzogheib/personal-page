@@ -1,8 +1,6 @@
 <script>
 import Colors from '../services/Colors.js'
-import request from 'axios'
-import querystring from 'querystring';
-import config from '../../private/config.json'
+import Api from '../services/Api.js'
 
 const setStyle = ({ inputBackground }) => {
   // Convert from HTMLCollection to Array
@@ -36,12 +34,7 @@ export default {
       // Stop form submit from reloading page
       e.preventDefault();
 
-      const url = config.contactUrl;
-      const requestConfig = { method: 'POST', url, data: querystring.stringify(this.form) };
-      request.request(requestConfig)
-        .then(console.log)
-        .catch(console.error);
-
+      Api.sendMessage(this.form);
     }
   },
   computed: {
