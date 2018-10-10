@@ -7,12 +7,7 @@
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
-    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
-    "deploy": "npm run build && now --public && now alias",
-    "start": "serve --single"
-  },
-  "now": {
-    "alias": "marwan-zogheib.now.sh"
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -34,11 +29,9 @@
     "css-loader": "^0.28.7",
     "file-loader": "^1.1.4",
     "node-sass": "^4.5.3",
-    "now": "^11.4.6",
     "pug": "^2.0.3",
     "pug-loader": "^2.4.0",
     "sass-loader": "^6.0.6",
-    "serve": "^10.0.2",
     "vue-loader": "^13.0.5",
     "vue-template-compiler": "^2.4.4",
     "webpack": "^3.6.0",
