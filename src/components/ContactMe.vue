@@ -26,9 +26,10 @@ export default {
   name: 'contact-me',
   data() {
     return {
-      currentUrl: window.location.href,
       buttonBackground: Colors.contact,
-      form: makeForm()
+      form: makeForm(),
+      status: null,
+      isLoading: false
     }
   },
   methods: {
@@ -36,12 +37,18 @@ export default {
       // Stop form submit from reloading page
       e.preventDefault();
 
-      Api.sendMessage(this.form).then(() => this.form = makeForm());
+      this.isLoading = true;
+      Api.sendMessage(this.form).then(() => {
+        this.form = makeForm();
+        this.status = 'Message sent!';
+        this.isLoading = false;
+        setTimeout(() => this.status = null, 3000);
+      });
     }
   },
   computed: {
     isDisabled: function () {
-      return isDisabled(this.form);
+      return isDisabled(this.form) || this.isLoading;
     }
   },
   mounted: function () {
@@ -54,11 +61,13 @@ export default {
 <template lang="pug">
   .contact-me
     form.contact-me__form(action="#" v-on:submit="submit")
-      input.contact-me__input(type="text" name="name" placeholder="Name*" v-model="form.name" autofocus="true")
-      input.contact-me__input(type="email" name="replyto" placeholder="Email*" v-model="form.email")
-      input.contact-me__input(type="text" name="subject" placeholder="Subject*" v-model="form.subject" autocomplete="off")
-      textarea.contact-me__input(name="message" placeholder="Message*" v-model="form.message" autocomplete="off")
+      input.contact-me__input(type="text" name="name" placeholder="Name*" v-model="form.name" :disabled="isLoading" autofocus="true")
+      input.contact-me__input(type="email" name="replyto" placeholder="Email*" v-model="form.email" :disabled="isLoading")
+      input.contact-me__input(type="text" name="subject" placeholder="Subject*" v-model="form.subject" :disabled="isLoading" autocomplete="off")
+      textarea.contact-me__input(name="message" placeholder="Message*" v-model="form.message" :disabled="isLoading" autocomplete="off")
       .contact-me__footer
+        .contact-me__footer-status
+          span {{ status }}
         button.contact-me__button(type="submit" :style="{ backgroundColor: buttonBackground }" :disabled="isDisabled" v-bind:class="{ disabled: isDisabled }") Send
 </template>
 
@@ -92,7 +101,14 @@ export default {
   &__footer {
     margin: 15px 0 0;
     display: flex;
-    justify-content: flex-end;
+
+    &-status {
+      flex-grow: 1;
+      display: flex;
+      justify-content: flex-end;
+      padding: 0 20px;
+      align-items: center;
+    }
   }
 
   &__button {
