@@ -15,18 +15,20 @@ const isDisabled = form => {
   return !(form.name && validEmail && form.subject && form.message)
 };
 
+const makeForm = () => ({
+    name: null,
+    email: null,
+    subject: null,
+    message: null
+})
+
 export default {
   name: 'contact-me',
   data() {
     return {
       currentUrl: window.location.href,
       buttonBackground: Colors.contact,
-      form: {
-        name: null,
-        email: null,
-        subject: null,
-        message: null
-      }
+      form: makeForm()
     }
   },
   methods: {
@@ -34,7 +36,7 @@ export default {
       // Stop form submit from reloading page
       e.preventDefault();
 
-      Api.sendMessage(this.form);
+      Api.sendMessage(this.form).then(() => this.form = makeForm());
     }
   },
   computed: {
