@@ -8,11 +8,11 @@ const setStyle = ({ inputBackground }) => {
   elements.forEach(element => element.style.backgroundColor = inputBackground)
 }
 
-const isDisabled = form => {
+const isFormComplete = form => {
   // https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript
   const EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   const validEmail = form.email && EMAIL_REGEX.test(String(form.email).toLowerCase());
-  return !(form.name && validEmail && form.subject && form.message)
+  return form.name && validEmail && form.subject && form.message;
 };
 
 const makeForm = () => ({
@@ -38,17 +38,21 @@ export default {
       e.preventDefault();
 
       this.isLoading = true;
+      this.status = null;
       Api.sendMessage(this.form).then(() => {
         this.form = makeForm();
         this.status = 'Message sent!';
         this.isLoading = false;
         setTimeout(() => this.status = null, 3000);
+      }).catch(() => {
+        this.status = 'Could not send message :(';
+        this.isLoading = false;
       });
     }
   },
   computed: {
     isDisabled: function () {
-      return isDisabled(this.form) || this.isLoading;
+      return !isFormComplete(this.form) || this.isLoading;
     }
   },
   mounted: function () {
