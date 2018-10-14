@@ -38,7 +38,7 @@ export default {
       e.preventDefault();
 
       this.isLoading = true;
-      this.status = null;
+      this.status = 'Sending...';
       Api.sendMessage(this.form).then(() => {
         this.form = makeForm();
         this.status = 'Message sent!';
