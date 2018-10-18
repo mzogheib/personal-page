@@ -29,6 +29,30 @@ const projects = [{
     ]
   },
   {
+    label: 'this',
+    image: require('../../public/favicon.png'),
+    links: [
+      { label: 'Source', url: 'https://github.com/mzogheib/personal-page' },
+    ],
+    description: [
+      '<b>What is it?</b>',
+      '<br>',
+      'The page you\'re on now!',
+      '<br><br>',
+      '<b>Why is it?</b>',
+      '<br>',
+      '<ul>',
+      '<li>Display some of my work</li>',
+      '<li>Learn Vue.js</li>',
+      '<li>Do more cool things with Google Apps Script (the contact form POSTs to a script on my Drive, which then sends me an email)</li>',
+      '</ul>',
+      ].join(''),
+    technologies: [
+      { label: 'Vue.js', image: require('../img/vue-logo.png') },
+      { label: 'Google Apps Script', image: require('../img/google-apps-script-logo.png') },
+    ]
+  },
+  {
     label: 'Is Palindrome?',
     image: require('../img/is-palindrome-logo.png'),
     links: [
