@@ -4,7 +4,13 @@
 // ];
 
 const Palettes = [
-  { background: '#FEFEFF', color: '#2c3e50', about: '#B09489', projects: '#D3B6A6', contact: '#E9D6C8' },
+  {
+    background: '#FEFEFF',
+    color: '#2c3e50',
+    about: '#B09489',
+    projects: '#D3B6A6',
+    contact: '#E9D6C8'
+  }
 ]
 
-export default Palettes[0];
+export default Palettes[0]

@@ -7,37 +7,57 @@ import AboutMe from './components/AboutMe.vue'
 import MyProjects from './components/MyProjects.vue'
 import ContactMe from './components/ContactMe.vue'
 
-
 const navItems = [
-  { title: 'About', isHidden: false, backgroundColor: Colors.about, color: Colors.navItemColor, component: AboutMe },
-  { title: 'Projects', isHidden: false, backgroundColor: Colors.projects, color: Colors.navItemColor, component: MyProjects },
-  { title: 'Contact', isHidden: false, backgroundColor: Colors.contact, color: Colors.navItemColor, component: ContactMe },
-];
+  {
+    title: 'About',
+    isHidden: false,
+    backgroundColor: Colors.about,
+    color: Colors.navItemColor,
+    component: AboutMe
+  },
+  {
+    title: 'Projects',
+    isHidden: false,
+    backgroundColor: Colors.projects,
+    color: Colors.navItemColor,
+    component: MyProjects
+  },
+  {
+    title: 'Contact',
+    isHidden: false,
+    backgroundColor: Colors.contact,
+    color: Colors.navItemColor,
+    component: ContactMe
+  }
+]
 
-const setStyle = ({ backgroundColor, color}) => {
-  let style = document.getElementsByTagName('html')[0].style;
-  style.backgroundColor = backgroundColor;
-  style.color = color;
+const setStyle = ({ backgroundColor, color }) => {
+  let style = document.getElementsByTagName('html')[0].style
+  style.backgroundColor = backgroundColor
+  style.color = color
 }
-const focusItem = ({ title, items }) => items.map(item => ({ ...item, isHidden: title && item.title !== title }));
+const focusItem = ({ title, items }) =>
+  items.map((item) => ({ ...item, isHidden: title && item.title !== title }))
 
 export default {
   name: 'app',
-  data () {
+  data() {
     return {
       backgroundColor: Colors.background,
       isFocussed: false,
       navItems: navItems,
       focussedItem: {},
-      handleSelectItem: title => {
-        this.navItems = focusItem({ title, items: this.navItems});
-        this.isFocussed = !!title;
-        this.focussedItem = this.isFocussed ? this.navItems.find(n => n.title === title) : this.focussedItem;
+      handleSelectItem: (title) => {
+        this.navItems = focusItem({ title, items: this.navItems })
+        this.isFocussed = !!title
+        this.focussedItem = this.isFocussed
+          ? this.navItems.find((n) => n.title === title)
+          : this.focussedItem
       }
     }
   },
   mounted: function () {
-    setStyle({ backgroundColor: Colors.background, color: Colors.color });
+    setStyle({ backgroundColor: Colors.background, color: Colors.color })
   },
   components: {
     TopBar,
@@ -48,21 +68,23 @@ export default {
 </script>
 
 <template lang="pug">
-  .app
-    top-bar.app__top-bar
-    .app__content-wrapper
-      .app__content
-        nav-items(:on-item-select="handleSelectItem" :nav-items="navItems" :is-focussed="isFocussed")
-        info-box.app__info-box(:class="{ '-focussed': isFocussed }" :is-focussed="isFocussed" :on-cancel="() => handleSelectItem()")
-          component(:is="focussedItem.component" :on-projects-select="() => handleSelectItem('Projects')" :on-contact-select="() => handleSelectItem('Contact')")
+.app
+  top-bar.app__top-bar
+  .app__content-wrapper
+    .app__content
+      nav-items(:on-item-select="handleSelectItem" :nav-items="navItems" :is-focussed="isFocussed")
+      info-box.app__info-box(:class="{ '-focussed': isFocussed }" :is-focussed="isFocussed" :on-cancel="() => handleSelectItem()")
+        component(:is="focussedItem.component" :on-projects-select="() => handleSelectItem('Projects')" :on-contact-select="() => handleSelectItem('Contact')")
 </template>
 
 <style lang="scss">
 @import './scss/variables.scss';
 
-html, body {
+html,
+body {
   margin: 0;
 }
+
 .app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

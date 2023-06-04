@@ -6,7 +6,7 @@ export default {
   name: 'nav-items',
   data() {
     return {
-      selectItem: title => this.onItemSelect(title)
+      selectItem: (title) => this.onItemSelect(title)
     }
   },
   components: {
@@ -16,15 +16,15 @@ export default {
 </script>
 
 <template lang="pug">
-  .nav-items(:class="{ '-focussed': isFocussed }")
-    nav-item.nav-items__item(
-      :class="{ '-hidden': item.isHidden, '-focussed': isFocussed }"
-      v-for="item in navItems"
-      @click.native="() => selectItem(item.title)"
-      :key="item.title"
-      :title="item.title"
-      :background-color="item.backgroundColor"
-      :color="item.color")
+.nav-items(:class="{ '-focussed': isFocussed }")
+  nav-item.nav-items__item(
+    :class="{ '-hidden': item.isHidden, '-focussed': isFocussed }"
+    v-for="item in navItems"
+    @click.native="() => selectItem(item.title)"
+    :key="item.title"
+    :title="item.title"
+    :background-color="item.backgroundColor"
+    :color="item.color")
 </template>
 
 <style lang="scss">

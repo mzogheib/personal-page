@@ -6,8 +6,8 @@ export default {
 </script>
 
 <template lang="pug">
-  .nav-item(:style="{ backgroundColor: backgroundColor, color: color }")
-    span {{ title }}
+.nav-item(:style="{ backgroundColor: backgroundColor, color: color }")
+  span {{ title }}
 </template>
 
 <style lang="scss">
@@ -27,6 +27,5 @@ export default {
     content: '';
     padding-top: 100%;
   }
-
 }
 </style>

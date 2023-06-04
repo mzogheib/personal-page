@@ -11,11 +11,11 @@ export default {
 </script>
 
 <template lang="pug">
-  .info-box
-    .info-box__header
-      close-icon.info-box__icon-button(@click.native="onCancel")
-    .info-box__content
-      slot
+.info-box
+  .info-box__header
+    close-icon.info-box__icon-button(@click.native="onCancel")
+  .info-box__content
+    slot
 </template>
 
 <style lang="scss">
@@ -52,5 +52,4 @@ $iconSize: 2.125em;
   position: absolute;
   bottom: -0.125em;
 }
-
 </style>
