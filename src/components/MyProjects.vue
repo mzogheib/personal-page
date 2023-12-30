@@ -1,5 +1,8 @@
 <script>
 import isPalindromeImage from '../img/is-palindrome-logo.png'
+import juniorImage from '../img/junior-logo.png'
+import jotaiImage from '../img/jotai-logo.png'
+import muiImage from '../img/mui-logo.png'
 import quollImage from '../img/quoll-logo.png'
 import thisImage from '../img/personal-page-logo.png'
 import reactImage from '../img/react-logo.png'
@@ -36,6 +39,31 @@ const projects = [
       { label: 'Redux', image: reduxImage },
       { label: 'Node.js', image: nodeImage },
       { label: 'Express', image: expressImage }
+    ]
+  },
+  {
+    label: 'Junior',
+    image: juniorImage,
+    links: [
+      { label: 'Try it out!', url: 'https://mzogheib.github.io/junior' },
+      { label: 'Source', url: 'https://github.com/mzogheib/junior' }
+    ],
+    description: [
+      '<b>What is it?</b>',
+      '<br>',
+      'A Wordle clone with extra features.',
+      '<br><br>',
+      '<b>Why is it?</b>',
+      '<ul>',
+      '<li>I was sick of just one Wordle per day</li>',
+      '<li>Wordle for equations sounds cool!</li>',
+      '<li>Practice with <a href="https://mui.com/" target="_blank">MUI</a> and <a href="https://jotai.org/" target="_blank">Jotai</a></li>',
+      '</ul>'
+    ].join(''),
+    technologies: [
+      { label: 'React', image: reactImage },
+      { label: 'MUI', image: muiImage },
+      { label: 'Jotai', image: jotaiImage }
     ]
   },
   {
