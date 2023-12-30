@@ -15,9 +15,7 @@ const projects = [
   {
     label: 'Quoll',
     image: quollImage,
-    links: [
-      { label: 'Source', url: 'https://github.com/mzogheib/quoll' },
-    ],
+    links: [{ label: 'Source', url: 'https://github.com/mzogheib/quoll' }],
     description: [
       '<b>What is it?</b>',
       '<br>',
@@ -31,13 +29,13 @@ const projects = [
       '<li>Learn how to consume data from APIs using OAuth 2.0</li>',
       '<li>More practice with building backends in Node & Express</li>',
       '<li>Learn how to setup and work in a monorepo</li>',
-      '</ul>',
+      '</ul>'
     ].join(''),
     technologies: [
       { label: 'React', image: reactImage },
-      { label: 'Redux', image: reduxImage, },
+      { label: 'Redux', image: reduxImage },
       { label: 'Node.js', image: nodeImage },
-      { label: 'Express',image: expressImage  }
+      { label: 'Express', image: expressImage }
     ]
   },
   {
@@ -59,7 +57,7 @@ const projects = [
     ].join(''),
     technologies: [
       { label: 'Vue.js', image: vueImage },
-      { label: 'Google Apps Script',  image: gasImage }
+      { label: 'Google Apps Script', image: gasImage }
     ]
   },
   {
@@ -88,7 +86,7 @@ const projects = [
     ].join(''),
     technologies: [
       { label: 'Vanilla JS', image: vanillaJsImage },
-      { label: 'Google Data Studio',  image: gdsImage}
+      { label: 'Google Data Studio', image: gdsImage }
     ]
   }
 ]
