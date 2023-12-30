@@ -80,7 +80,7 @@ const projects = [
       '<br><br>',
       '<b>Why is it?</b>',
       '<ul>',
-      '<li><a href="http://www.abc.net.au/news/2017-10-30/from-racecar-to-boob-a-brief-history-of-the-palindrome/9014082" taget="_blank">Palindromes are amazing</a></li>',
+      '<li><a href="http://www.abc.net.au/news/2017-10-30/from-racecar-to-boob-a-brief-history-of-the-palindrome/9014082" target="_blank">Palindromes are amazing</a></li>',
       '<li>Build something in vanilla JS for a change</li>',
       '<li>Learn how to setup GitHub Pages</li>',
       '<li>More practice with Google Data Studio</li>',
