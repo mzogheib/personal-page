@@ -5,6 +5,9 @@
   "author": "Marwan Zogheib <mzogheib@gmail.com>",
   "license": "MIT",
   "private": true,
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check build-only",
