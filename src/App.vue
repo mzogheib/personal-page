@@ -63,7 +63,7 @@ export default {
     }
   },
   mounted: function () {
-    setStyle({ backgroundColor: palette.background, color: palette.color })
+    setStyle({ backgroundColor: palette.background, color: palette.titleColor })
   },
   components: {
     TopBar,
