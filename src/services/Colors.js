@@ -27,6 +27,14 @@ const Palettes = [
     about: '#6FE6FC',
     projects: '#A8F1FF',
     contact: '#8DF1A8'
+  },
+  {
+    url: 'https://colorhunt.co/palette/fce7c8b1c29efada7af0a04b',
+    background: '#FCE7C8',
+    color: '#2c3e50',
+    about: '#B1C29E',
+    projects: '#FADA7A',
+    contact: '#F0A04B'
   }
 ]
 
