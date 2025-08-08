@@ -19,7 +19,7 @@ const Palettes = [
   {
     url: 'https://colorhunt.co/palette/799efffeffc4ffde63ffbc4c',
     background: '#799EFF',
-    titleColor: '#2C3E50',
+    titleColor: '#FFFFFF',
     color: '#2C3E50',
     aboutBackground: '#FEFFC4',
     aboutColor: '#2C3E50',
