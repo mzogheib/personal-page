@@ -8,33 +8,33 @@ const Palettes = [
     url: null,
     background: '#FEFEFF',
     color: '#2c3e50',
-    about: '#B09489',
-    projects: '#D3B6A6',
-    contact: '#E9D6C8'
+    aboutBackground: '#B09489',
+    projectsBackground: '#D3B6A6',
+    contactBackground: '#E9D6C8'
   },
   {
     url: 'https://colorhunt.co/palette/799efffeffc4ffde63ffbc4c',
     background: '#799EFF',
     color: '#2c3e50',
-    about: '#FEFFC4',
-    projects: '#FFDE63',
-    contact: '#FFBC4C'
+    aboutBackground: '#FEFFC4',
+    projectsBackground: '#FFDE63',
+    contactBackground: '#FFBC4C'
   },
   {
     url: 'https://colorhunt.co/palette/4ed7f16fe6fca8f1fffffa8d',
     background: '#FFFA8D',
     color: '#2c3e50',
-    about: '#6FE6FC',
-    projects: '#A8F1FF',
-    contact: '#8DF1A8'
+    aboutBackground: '#6FE6FC',
+    projectsBackground: '#A8F1FF',
+    contactBackground: '#8DF1A8'
   },
   {
     url: 'https://colorhunt.co/palette/fce7c8b1c29efada7af0a04b',
     background: '#FCE7C8',
     color: '#2c3e50',
-    about: '#B1C29E',
-    projects: '#FADA7A',
-    contact: '#F0A04B'
+    aboutBackground: '#B1C29E',
+    projectsBackground: '#FADA7A',
+    contactBackground: '#F0A04B'
   }
 ]
 

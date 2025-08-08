@@ -27,7 +27,7 @@ export default {
   name: 'contact-me',
   data() {
     return {
-      buttonBackground: Colors.contact,
+      buttonBackground: Colors.contactBackground,
       form: makeForm(),
       status: null,
       isLoading: false
@@ -60,7 +60,7 @@ export default {
   },
   mounted: function () {
     // Add opacity to end of hex code
-    setStyle({ inputBackground: `${Colors.contact}20` })
+    setStyle({ inputBackground: `${Colors.contactBackground}20` })
   }
 }
 </script>
