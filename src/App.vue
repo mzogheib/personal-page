@@ -7,7 +7,10 @@ import AboutMe from './components/AboutMe.vue'
 import MyProjects from './components/MyProjects.vue'
 import ContactMe from './components/ContactMe.vue'
 
-const palette = getPalette()
+const urlParams = new URLSearchParams(window.location.search)
+const randomPalette = urlParams.get('randomPalette') === 'true'
+
+const palette = getPalette({ random: randomPalette })
 
 const navItems = [
   {
