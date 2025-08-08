@@ -38,9 +38,13 @@ const Palettes = [
   }
 ]
 
-export const getRandomPalette = () => {
-  const randomIndex = Math.floor(Math.random() * Palettes.length)
-  return Palettes[randomIndex]
+export const getPalette = ({ random = false } = {}) => {
+  if (random) {
+    const randomIndex = Math.floor(Math.random() * Palettes.length)
+    return Palettes[randomIndex]
+  }
+
+  return Palettes[0]
 }
 
 export default Palettes[0]

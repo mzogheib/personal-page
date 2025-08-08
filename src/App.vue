@@ -1,5 +1,5 @@
 <script>
-import { getRandomPalette } from './services/Colors.js'
+import { getPalette } from './services/Colors.js'
 import TopBar from './components/TopBar.vue'
 import NavItems from './components/NavItems.vue'
 import InfoBox from './components/InfoBox.vue'
@@ -7,7 +7,7 @@ import AboutMe from './components/AboutMe.vue'
 import MyProjects from './components/MyProjects.vue'
 import ContactMe from './components/ContactMe.vue'
 
-const palette = getRandomPalette()
+const palette = getPalette()
 
 const navItems = [
   {
