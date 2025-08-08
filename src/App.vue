@@ -1,5 +1,5 @@
 <script>
-import Colors from './services/Colors.js'
+import { getRandomPalette } from './services/Colors.js'
 import TopBar from './components/TopBar.vue'
 import NavItems from './components/NavItems.vue'
 import InfoBox from './components/InfoBox.vue'
@@ -7,26 +7,28 @@ import AboutMe from './components/AboutMe.vue'
 import MyProjects from './components/MyProjects.vue'
 import ContactMe from './components/ContactMe.vue'
 
+const palette = getRandomPalette()
+
 const navItems = [
   {
     title: 'About',
     isHidden: false,
-    backgroundColor: Colors.about,
-    color: Colors.navItemColor,
+    backgroundColor: palette.about,
+    color: palette.navItemColor,
     component: AboutMe
   },
   {
     title: 'Projects',
     isHidden: false,
-    backgroundColor: Colors.projects,
-    color: Colors.navItemColor,
+    backgroundColor: palette.projects,
+    color: palette.navItemColor,
     component: MyProjects
   },
   {
     title: 'Contact',
     isHidden: false,
-    backgroundColor: Colors.contact,
-    color: Colors.navItemColor,
+    backgroundColor: palette.contact,
+    color: palette.navItemColor,
     component: ContactMe
   }
 ]
@@ -43,7 +45,7 @@ export default {
   name: 'app',
   data() {
     return {
-      backgroundColor: Colors.background,
+      backgroundColor: palette.background,
       isFocussed: false,
       navItems: navItems,
       focussedItem: {},
@@ -57,7 +59,7 @@ export default {
     }
   },
   mounted: function () {
-    setStyle({ backgroundColor: Colors.background, color: Colors.color })
+    setStyle({ backgroundColor: palette.background, color: palette.color })
   },
   components: {
     TopBar,

@@ -30,4 +30,9 @@ const Palettes = [
   }
 ]
 
+export const getRandomPalette = () => {
+  const randomIndex = Math.floor(Math.random() * Palettes.length)
+  return Palettes[randomIndex]
+}
+
 export default Palettes[0]
