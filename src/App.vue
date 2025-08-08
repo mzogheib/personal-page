@@ -18,21 +18,21 @@ const navItems = [
     title: 'About',
     isHidden: false,
     backgroundColor: palette.aboutBackground,
-    color: palette.navItemColor,
+    color: palette.aboutColor,
     component: AboutMe
   },
   {
     title: 'Projects',
     isHidden: false,
     backgroundColor: palette.projectsBackground,
-    color: palette.navItemColor,
+    color: palette.projectsColor,
     component: MyProjects
   },
   {
     title: 'Contact',
     isHidden: false,
     backgroundColor: palette.contactBackground,
-    color: palette.navItemColor,
+    color: palette.contactColor,
     component: ContactMe
   }
 ]
