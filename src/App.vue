@@ -8,7 +8,8 @@ import MyProjects from './components/MyProjects.vue'
 import ContactMe from './components/ContactMe.vue'
 
 const urlParams = new URLSearchParams(window.location.search)
-const randomPalette = urlParams.get('randomPalette') === 'true'
+const featureFlags = urlParams.get('featureFlags')
+const randomPalette = featureFlags && featureFlags.split(',').includes('randomPalette')
 
 const palette = getPalette({ random: randomPalette })
 
