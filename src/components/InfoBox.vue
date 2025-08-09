@@ -19,8 +19,6 @@ export default {
 </template>
 
 <style lang="scss">
-@import '../scss/variables.scss';
-
 .info-box {
   &__header {
     display: flex;

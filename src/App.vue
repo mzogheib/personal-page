@@ -84,7 +84,7 @@ export default {
 </template>
 
 <style lang="scss">
-@import './scss/variables.scss';
+@use './scss/variables.scss' as vars;
 
 html,
 body {
@@ -120,11 +120,11 @@ body {
 
   &__info-box {
     opacity: 0;
-    transition: opacity $transitionTime;
+    transition: opacity vars.$transitionTime;
     z-index: 10;
     pointer-events: none;
     position: absolute;
-    width: calc(100% - #{$itemWidth} - 25px);
+    width: calc(100% - #{vars.$itemWidth} - 25px);
     right: 0;
 
     &.-focussed {
