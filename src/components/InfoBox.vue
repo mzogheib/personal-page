@@ -5,8 +5,8 @@ export default {
   name: 'info-box',
   props: ['onCancel'],
   components: {
-    CloseIcon
-  }
+    CloseIcon,
+  },
 }
 </script>
 

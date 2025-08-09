@@ -29,5 +29,5 @@ const sendMessage = (data) => {
 }
 
 export default {
-  sendMessage
+  sendMessage,
 }

@@ -19,22 +19,22 @@ const navItems = [
     isHidden: false,
     backgroundColor: palette.aboutBackground,
     color: palette.aboutColor,
-    component: AboutMe
+    component: AboutMe,
   },
   {
     title: 'Projects',
     isHidden: false,
     backgroundColor: palette.projectsBackground,
     color: palette.projectsColor,
-    component: MyProjects
+    component: MyProjects,
   },
   {
     title: 'Contact',
     isHidden: false,
     backgroundColor: palette.contactBackground,
     color: palette.contactColor,
-    component: ContactMe
-  }
+    component: ContactMe,
+  },
 ]
 
 const setStyle = ({ backgroundColor, color }) => {
@@ -59,7 +59,7 @@ export default {
         this.focussedItem = this.isFocussed
           ? this.navItems.find((n) => n.title === title)
           : this.focussedItem
-      }
+      },
     }
   },
   mounted: function () {
@@ -68,8 +68,8 @@ export default {
   components: {
     TopBar,
     NavItems,
-    InfoBox
-  }
+    InfoBox,
+  },
 }
 </script>
 

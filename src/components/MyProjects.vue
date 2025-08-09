@@ -32,21 +32,21 @@ const projects = [
       '<li>Learn how to consume data from APIs using OAuth 2.0</li>',
       '<li>More practice with building backends in Node & Express</li>',
       '<li>Learn how to setup and work in a monorepo</li>',
-      '</ul>'
+      '</ul>',
     ].join(''),
     technologies: [
       { label: 'React', image: reactImage },
       { label: 'Redux', image: reduxImage },
       { label: 'Node.js', image: nodeImage },
-      { label: 'Express', image: expressImage }
-    ]
+      { label: 'Express', image: expressImage },
+    ],
   },
   {
     label: 'Junior',
     image: juniorImage,
     links: [
       { label: 'Try it out!', url: 'https://mzogheib.github.io/junior' },
-      { label: 'Source', url: 'https://github.com/mzogheib/junior' }
+      { label: 'Source', url: 'https://github.com/mzogheib/junior' },
     ],
     description: [
       '<b>What is it?</b>',
@@ -58,13 +58,13 @@ const projects = [
       '<li>I was sick of just one Wordle per day</li>',
       '<li>Wordle for equations sounds cool!</li>',
       '<li>Practice with <a href="https://mui.com/" target="_blank">MUI</a> and <a href="https://jotai.org/" target="_blank">Jotai</a></li>',
-      '</ul>'
+      '</ul>',
     ].join(''),
     technologies: [
       { label: 'React', image: reactImage },
       { label: 'MUI', image: muiImage },
-      { label: 'Jotai', image: jotaiImage }
-    ]
+      { label: 'Jotai', image: jotaiImage },
+    ],
   },
   {
     label: 'this',
@@ -81,12 +81,12 @@ const projects = [
       '<li>Display some of my work</li>',
       '<li>Learn Vue.js</li>',
       '<li>Do more cool things with Google Apps Script (the contact form POSTs to a script on my Drive, which then sends me an email)</li>',
-      '</ul>'
+      '</ul>',
     ].join(''),
     technologies: [
       { label: 'Vue.js', image: vueImage },
-      { label: 'Google Apps Script', image: gasImage }
-    ]
+      { label: 'Google Apps Script', image: gasImage },
+    ],
   },
   {
     label: 'Is Palindrome?',
@@ -96,8 +96,8 @@ const projects = [
       { label: 'Source', url: 'https://github.com/mzogheib/is-palindrome' },
       {
         label: 'Analytics',
-        url: 'https://datastudio.google.com/open/1iX9At8HgDlklu7NabYwP30W9QESTOgAP'
-      }
+        url: 'https://datastudio.google.com/open/1iX9At8HgDlklu7NabYwP30W9QESTOgAP',
+      },
     ],
     description: [
       '<b>What is it?</b>',
@@ -110,22 +110,22 @@ const projects = [
       '<li>Build something in vanilla JS for a change</li>',
       '<li>Learn how to setup GitHub Pages</li>',
       '<li>More practice with Google Data Studio</li>',
-      '</ul>'
+      '</ul>',
     ].join(''),
     technologies: [
       { label: 'Vanilla JS', image: vanillaJsImage },
-      { label: 'Google Data Studio', image: gdsImage }
-    ]
-  }
+      { label: 'Google Data Studio', image: gdsImage },
+    ],
+  },
 ]
 
 export default {
   name: 'my-projects',
   data() {
     return {
-      projects: projects
+      projects: projects,
     }
-  }
+  },
 }
 </script>
 

@@ -11,17 +11,17 @@ export default {
         {
           label: 'mzogheib',
           url: 'https://github.com/mzogheib',
-          image: gitHubLogo
+          image: gitHubLogo,
         },
         {
           label: 'marwanzogheib',
           url: 'https://www.linkedin.com/in/marwanzogheib/',
-          image: linkedInLogo
-        }
+          image: linkedInLogo,
+        },
       ],
-      openLink: (url) => window.open(url, '_blank')
+      openLink: (url) => window.open(url, '_blank'),
     }
-  }
+  },
 }
 </script>
 

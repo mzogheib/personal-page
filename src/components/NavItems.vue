@@ -6,12 +6,12 @@ export default {
   name: 'nav-items',
   data() {
     return {
-      selectItem: (title) => this.onItemSelect(title)
+      selectItem: (title) => this.onItemSelect(title),
     }
   },
   components: {
-    NavItem
-  }
+    NavItem,
+  },
 }
 </script>
 
@@ -42,7 +42,10 @@ export default {
     max-height: $itemWidth;
     max-width: $itemWidth;
     opacity: 1;
-    transition: opacity $transitionTime, left $transitionTime, top $transitionTime;
+    transition:
+      opacity $transitionTime,
+      left $transitionTime,
+      top $transitionTime;
     position: absolute;
     left: calc(#{$midPointH} - #{$itemWidth} / 2);
     z-index: 2;

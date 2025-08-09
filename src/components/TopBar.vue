@@ -1,7 +1,7 @@
 <script>
 export default {
   name: 'top-bar',
-  props: ['color']
+  props: ['color'],
 }
 </script>
 
