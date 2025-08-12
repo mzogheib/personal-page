@@ -6,12 +6,12 @@ export default {
   name: 'nav-items',
   data() {
     return {
-      selectItem: (title) => this.onItemSelect(title)
+      selectItem: (title) => this.onItemSelect(title),
     }
   },
   components: {
-    NavItem
-  }
+    NavItem,
+  },
 }
 </script>
 
@@ -28,32 +28,35 @@ export default {
 </template>
 
 <style lang="scss">
-@import '../scss/variables.scss';
+@use '../scss/variables.scss' as vars;
 
 .nav-items {
   $midPointH: 50%;
-  $offsetH: calc(0.75 * #{$itemWidth});
-  $offsetV: calc(0.25 * #{$itemWidth});
+  $offsetH: calc(0.75 * #{vars.$itemWidth});
+  $offsetV: calc(0.25 * #{vars.$itemWidth});
 
   position: relative;
 
   &__item {
     width: 100%;
-    max-height: $itemWidth;
-    max-width: $itemWidth;
+    max-height: vars.$itemWidth;
+    max-width: vars.$itemWidth;
     opacity: 1;
-    transition: opacity $transitionTime, left $transitionTime, top $transitionTime;
+    transition:
+      opacity vars.$transitionTime,
+      left vars.$transitionTime,
+      top vars.$transitionTime;
     position: absolute;
-    left: calc(#{$midPointH} - #{$itemWidth} / 2);
+    left: calc(#{$midPointH} - #{vars.$itemWidth} / 2);
     z-index: 2;
 
     &:first-child {
-      left: calc(#{$midPointH} - #{$itemWidth} / 2 - #{$offsetH});
+      left: calc(#{$midPointH} - #{vars.$itemWidth} / 2 - #{$offsetH});
       z-index: 3;
     }
 
     &:last-child {
-      left: calc(#{$midPointH} - #{$itemWidth} / 2 + #{$offsetH});
+      left: calc(#{$midPointH} - #{vars.$itemWidth} / 2 + #{$offsetH});
       z-index: 1;
     }
 
@@ -75,21 +78,21 @@ export default {
 
   @media (max-width: 630px) {
     &__item {
-      left: calc(#{$midPointH} - #{$itemWidth} / 2);
-      top: calc(#{$itemWidth} - #{$offsetV});
+      left: calc(#{$midPointH} - #{vars.$itemWidth} / 2);
+      top: calc(#{vars.$itemWidth} - #{$offsetV});
 
       &:first-child {
-        left: calc(#{$midPointH} - #{$itemWidth} / 2);
+        left: calc(#{$midPointH} - #{vars.$itemWidth} / 2);
         top: 0;
       }
 
       &:last-child {
-        left: calc(#{$midPointH} - #{$itemWidth} / 2);
-        top: calc(2 * (#{$itemWidth} - #{$offsetV}));
+        left: calc(#{$midPointH} - #{vars.$itemWidth} / 2);
+        top: calc(2 * (#{vars.$itemWidth} - #{$offsetV}));
       }
 
       &.-focussed {
-        left: calc(#{$midPointH} - #{$itemWidth} / 2);
+        left: calc(#{$midPointH} - #{vars.$itemWidth} / 2);
         top: 0;
         opacity: 0;
       }

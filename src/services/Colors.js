@@ -14,7 +14,7 @@ const Palettes = [
     projectsBackground: '#D3B6A6',
     projectsColor: '#2C3E50',
     contactBackground: '#E9D6C8',
-    contactColor: '#2C3E50'
+    contactColor: '#2C3E50',
   },
   {
     url: 'https://colorhunt.co/palette/799efffeffc4ffde63ffbc4c',
@@ -26,7 +26,7 @@ const Palettes = [
     projectsBackground: '#FFDE63',
     projectsColor: '#2C3E50',
     contactBackground: '#FFBC4C',
-    contactColor: '#2C3E50'
+    contactColor: '#2C3E50',
   },
   {
     url: 'https://colorhunt.co/palette/4ed7f16fe6fca8f1fffffa8d',
@@ -38,7 +38,7 @@ const Palettes = [
     projectsBackground: '#A8F1FF',
     projectsColor: '#2C3E50',
     contactBackground: '#8DF1A8',
-    contactColor: '#2C3E50'
+    contactColor: '#2C3E50',
   },
   {
     url: 'https://colorhunt.co/palette/fce7c8b1c29efada7af0a04b',
@@ -50,8 +50,8 @@ const Palettes = [
     projectsBackground: '#FADA7A',
     projectsColor: '#2C3E50',
     contactBackground: '#F0A04B',
-    contactColor: '#2C3E50'
-  }
+    contactColor: '#2C3E50',
+  },
 ]
 
 export const getPalette = ({ random = false } = {}) => {

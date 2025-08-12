@@ -20,7 +20,7 @@ const makeForm = () => ({
   name: null,
   email: null,
   subject: null,
-  message: null
+  message: null,
 })
 
 export default {
@@ -30,7 +30,7 @@ export default {
       buttonBackground: Colors.contactBackground,
       form: makeForm(),
       status: null,
-      isLoading: false
+      isLoading: false,
     }
   },
   methods: {
@@ -51,17 +51,17 @@ export default {
           this.status = 'Could not send message :('
           this.isLoading = false
         })
-    }
+    },
   },
   computed: {
     isDisabled: function () {
       return !isFormComplete(this.form) || this.isLoading
-    }
+    },
   },
   mounted: function () {
     // Add opacity to end of hex code
     setStyle({ inputBackground: `${Colors.contactBackground}20` })
-  }
+  },
 }
 </script>
 

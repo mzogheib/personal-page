@@ -1,7 +1,7 @@
 <script>
 export default {
   props: ['title', 'backgroundColor', 'color'],
-  name: 'nav-item'
+  name: 'nav-item',
 }
 </script>
 

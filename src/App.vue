@@ -19,22 +19,22 @@ const navItems = [
     isHidden: false,
     backgroundColor: palette.aboutBackground,
     color: palette.aboutColor,
-    component: AboutMe
+    component: AboutMe,
   },
   {
     title: 'Projects',
     isHidden: false,
     backgroundColor: palette.projectsBackground,
     color: palette.projectsColor,
-    component: MyProjects
+    component: MyProjects,
   },
   {
     title: 'Contact',
     isHidden: false,
     backgroundColor: palette.contactBackground,
     color: palette.contactColor,
-    component: ContactMe
-  }
+    component: ContactMe,
+  },
 ]
 
 const setStyle = ({ backgroundColor, color }) => {
@@ -59,7 +59,7 @@ export default {
         this.focussedItem = this.isFocussed
           ? this.navItems.find((n) => n.title === title)
           : this.focussedItem
-      }
+      },
     }
   },
   mounted: function () {
@@ -68,8 +68,8 @@ export default {
   components: {
     TopBar,
     NavItems,
-    InfoBox
-  }
+    InfoBox,
+  },
 }
 </script>
 
@@ -84,7 +84,7 @@ export default {
 </template>
 
 <style lang="scss">
-@import './scss/variables.scss';
+@use './scss/variables.scss' as vars;
 
 html,
 body {
@@ -120,11 +120,11 @@ body {
 
   &__info-box {
     opacity: 0;
-    transition: opacity $transitionTime;
+    transition: opacity vars.$transitionTime;
     z-index: 10;
     pointer-events: none;
     position: absolute;
-    width: calc(100% - #{$itemWidth} - 25px);
+    width: calc(100% - #{vars.$itemWidth} - 25px);
     right: 0;
 
     &.-focussed {
